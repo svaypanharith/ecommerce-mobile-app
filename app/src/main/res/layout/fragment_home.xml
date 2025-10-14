@@ -2,12 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".HomeFragment">
-    <!-- Profile Section -->
+    android:background="#FFFFFF">
+
     <LinearLayout
         android:id="@+id/profileInfoContainer"
         android:layout_width="wrap_content"
@@ -18,7 +16,6 @@
         android:layout_marginStart="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profileImage"
             android:layout_width="60dp"
@@ -28,7 +25,7 @@
             android:src="@drawable/me"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
             app:strokeWidth="1dp"
-            app:strokeColor="@android:color/white" />
+            app:strokeColor="@android:color/white"/>
 
         <LinearLayout
             android:id="@+id/userGreeting"
@@ -42,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Good afternoon"
                 android:textSize="16sp"
-                android:textColor="#A9A9A9" />
+                android:textColor="#A9A9A9"/>
 
             <TextView
                 android:id="@+id/userName"
@@ -51,7 +48,7 @@
                 android:text="Panharith Svay"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#000000" />
+                android:textColor="#000000"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -88,11 +85,10 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
     </LinearLayout>
 
-    <!-- Wallet Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/walletCard"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="140dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="24dp"
@@ -121,7 +117,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Available Wallet Balance"
-                    android:textStyle="normal"
                     android:textSize="16sp"
                     android:textColor="@android:color/white" />
 
@@ -130,18 +125,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$190.00"
-                    android:textSize="32sp"
+                    android:textSize="24dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
 
+            <!-- Eye Button (Top-Right) -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/closeeye"
-                android:layout_width="68dp"
-                android:layout_height="68dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:background="#E0E0E0"
-                android:padding="12dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/eye"
                 android:tint="@color/black"
@@ -149,23 +144,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- Plus Button (Below Eye, with spacing) -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/addWallets"
-                android:layout_width="78dp"
-                android:layout_height="78dp"
-                android:padding="12dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/plus"
                 android:tint="@color/black"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_bg_gray"
                 android:backgroundTint="@android:color/white"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/closeeye"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
-    <!-- Categories Header -->
+
     <LinearLayout
         android:id="@+id/categoriesHeaderContainer"
         android:layout_width="match_parent"
@@ -183,12 +181,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Categories"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <View
@@ -206,7 +203,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Categories Scroll -->
     <HorizontalScrollView
         android:id="@+id/categoriesScrollView"
         android:layout_width="0dp"
@@ -229,48 +225,47 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_all"
                 style="@style/CustomFilterChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="All"
                 android:checked="true" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_smartphones"
                 style="@style/CustomFilterChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="SmartPhones" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_headphones"
                 style="@style/CustomFilterChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="HeadPhones" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_smartwatches"
                 style="@style/CustomFilterChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="SmartWatches" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/computer"
                 style="@style/CustomFilterChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Computers" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/keyboard"
                 style="@style/CustomFilterChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="KeyBoards" />
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
-    <!-- RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoriesRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/categoriesHeaderContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

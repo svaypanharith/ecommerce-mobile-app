@@ -15,8 +15,8 @@
         <item name="chipIconVisible">false</item>
         <item name="checkedIconVisible">false</item>
 
-        <item name="chipMinTouchTargetSize">48dp</item>
-        <item name="chipMinHeight">48dp</item>
+        <item name="chipMinTouchTargetSize">38dp</item>
+        <item name="chipMinHeight">38dp</item>
         <item name="chipCornerRadius">100dp</item> <item name="chipStartPadding">16dp</item>
         <item name="chipEndPadding">16dp</item>
 

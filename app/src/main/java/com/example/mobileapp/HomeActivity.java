@@ -1,40 +1,50 @@
 package com.example.mobileapp;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import android.view.MenuItem;
-import android.content.Intent;
 
 public class HomeActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
 
-                if (id == R.id.navigation_home) {
-                    return true;
-                } else if (id == R.id.cart) {
-                    Intent intent = new Intent(HomeActivity.this , CartActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.profile) {
-                    Intent intent = new Intent( HomeActivity.this , ProfileActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (id == R.id.settings) {
-               Intent intent = new Intent(HomeActivity.this , SettingActivity.class);
-                    startActivity(intent);
-                    return true;
-                }
-                return false;
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+
+        // Set Home as default fragment only once
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .commit();
+            bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        }
+
+        // Handle tab clicks
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+
+            int id = item.getItemId();
+
+            if (id == R.id.navigation_home) {
+                selectedFragment = new HomeFragment();
+            } else if (id == R.id.cart) {
+                selectedFragment = new CartFragment();
+            } else if (id == R.id.profile) {
+                selectedFragment = new ProfileFragment();
+            } else if (id == R.id.settings) {
+                selectedFragment = new SettingsFragment();
             }
+
+            if (selectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit();
+            }
+
+            return true;
         });
     }
 }
