@@ -136,17 +136,20 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/eye_off"
                 android:tint="@color/black"
+                android:clickable="true"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/addWallets"
+                android:id="@+id/addWalltes"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/plus"
                 android:tint="@color/black"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/rounded_bg_gray"
                 android:backgroundTint="@android:color/white"
