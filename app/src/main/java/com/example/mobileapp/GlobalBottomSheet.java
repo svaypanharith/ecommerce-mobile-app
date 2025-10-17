@@ -26,19 +26,15 @@ public class GlobalBottomSheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.layout_bottom_sheet, container, false);
-
         TextView tvTitle = root.findViewById(R.id.bottomSheetTitle);
         FrameLayout contentContainer = root.findViewById(R.id.bottomSheetContent);
-
         if (title != null) {
             tvTitle.setText(title);
         }
         if (contentView != null) {
             contentContainer.addView(contentView);
         }
-
         return root;
     }
-
 }
 

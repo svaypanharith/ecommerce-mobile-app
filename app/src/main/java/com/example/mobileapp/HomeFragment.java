@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ import com.google.android.material.imageview.ShapeableImageView;
 
 public class HomeFragment extends Fragment {
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,8 +34,15 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ShapeableImageView addWallets = view.findViewById(R.id.addWalltes);
+        ShapeableImageView openeye = view.findViewById(R.id.closeeye);
+        TextView moneyTextView = view.findViewById(R.id.walletBalance);
+
         if (addWallets != null) {
             addWallets.setOnClickListener(v -> showBottomSheet());
+        }
+        if(openeye != null){
+            isEyeOpen = true;
+            openeye.setOnClickListener(v -> openEye(openeye , moneyTextView, "$190.00"));
         }
     }
 
@@ -61,6 +71,7 @@ public class HomeFragment extends Fragment {
         dialog.show();
 
         if (dialog.getWindow() != null) {
+
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         }
     }
@@ -71,5 +82,19 @@ public class HomeFragment extends Fragment {
         bottomSheet.show(getParentFragmentManager(), "bottomSheet");
 
     }
+    private boolean isEyeOpen = false;
+    private void openEye(ImageView eyeImageView, TextView moneyTextView, String actualMoney) {
+        if (isEyeOpen) {
+            moneyTextView.setText("*********");
+            eyeImageView.setImageResource(R.drawable.eye);
+            isEyeOpen = false;
+        } else {
+            moneyTextView.setText(actualMoney);
+            eyeImageView.setImageResource(R.drawable.eye_off);
+            isEyeOpen = true;
+        }
+    }
+
+
 
 }
