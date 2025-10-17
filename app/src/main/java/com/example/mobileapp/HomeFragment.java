@@ -12,6 +12,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import com.google.android.material.imageview.ShapeableImageView;
@@ -21,6 +24,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
     @Override
@@ -61,10 +65,11 @@ public class HomeFragment extends Fragment {
         }
     }
     private void showBottomSheet() {
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
-        View sheetView = getLayoutInflater().inflate(R.layout.layout_bottom_sheet, null);
-        bottomSheetDialog.setContentView(sheetView);
-        bottomSheetDialog.show();
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View wallettransfercontent = inflater.inflate(R.layout.wallet_transfer_content, null);
+        GlobalBottomSheet bottomSheet = new GlobalBottomSheet("Wallet Transfer", wallettransfercontent);
+        bottomSheet.show(getParentFragmentManager(), "bottomSheet");
+
     }
 
 }
