@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -26,13 +27,13 @@ public class GlobalDialogActivity extends DialogFragment {
         this.ViewContent = contentView;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.layout_dialog, container, false);
         TextView tvTitle = root.findViewById(R.id.dialogTitle);
+        Button Cancelbtn = root.findViewById(R.id.btncancel);
         TextView tvDescription = root.findViewById(R.id.dialogDescription);
         FrameLayout contentContainer = root.findViewById(R.id.dialogContent);
         if (title != null) {
@@ -44,6 +45,10 @@ public class GlobalDialogActivity extends DialogFragment {
         if (ViewContent != null) {
             contentContainer.addView(ViewContent);
         }
+        if(Cancelbtn != null){
+            Cancelbtn.setOnClickListener(v -> dismiss());
+        }
+
         return root;
     }
     @Override
@@ -55,7 +60,7 @@ public class GlobalDialogActivity extends DialogFragment {
                     ViewGroup.LayoutParams.WRAP_CONTENT
             );
             getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.BottomSheetCustomAnimation;
         }
     }
-
 }

@@ -29,11 +29,10 @@ public class ProfileFragment extends Fragment {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View editProfileContent = inflater.inflate(R.layout.edit_profile_content, null);
 
-        // Create your custom dialog
         GlobalDialogActivity editDialog = new GlobalDialogActivity(
                 "Edit Profile",
                 editProfileContent,
-                "Please enter your new information"
+                "Review and update your personal details as needed."
         );
 
         // Show dialog

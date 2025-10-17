@@ -24,4 +24,9 @@
         <item name="android:textColor">@color/chip_text_selector</item>
     </style>
 
+    <style name="BottomSheetCustomAnimation">
+        <item name="android:windowEnterAnimation">@anim/bottom_sheet_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/bottom_sheet_slide_down</item>
+    </style>
+
 </resources>
