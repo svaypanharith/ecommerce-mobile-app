@@ -16,7 +16,6 @@ public class BackButtonHelper {
      */
     public static void setupBackButton(View backButton, Activity activity, Class<?> targetActivity, Integer selectedTabId) {
         if (backButton == null) return;
-
         backButton.setOnClickListener(v -> {
             if (targetActivity != null) {
                 Intent intent = new Intent(activity, targetActivity);

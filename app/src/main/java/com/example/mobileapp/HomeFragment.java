@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -19,27 +20,20 @@ public class HomeFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        // Inflate the fragment layout
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // Find the plus button inside the fragment's layout
         ShapeableImageView addWallets = view.findViewById(R.id.addWalltes);
-
         if (addWallets != null) {
-            addWallets.setOnClickListener(v -> showIncreaseWalletDialog());
+            addWallets.setOnClickListener(v -> showBottomSheet());
         }
     }
 
     private void showIncreaseWalletDialog() {
         if (getContext() == null) return;
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_increase_wallet, null);
         builder.setView(dialogView);
@@ -59,13 +53,18 @@ public class HomeFragment extends Fragment {
                 dialog.dismiss();
             }
         });
-
         cancelButton.setOnClickListener(v -> dialog.dismiss());
-
         dialog.show();
 
         if (dialog.getWindow() != null) {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         }
     }
+    private void showBottomSheet() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
+        View sheetView = getLayoutInflater().inflate(R.layout.layout_bottom_sheet, null);
+        bottomSheetDialog.setContentView(sheetView);
+        bottomSheetDialog.show();
+    }
+
 }
