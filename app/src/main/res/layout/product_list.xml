@@ -1,81 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_card_background"
+    android:elevation="4dp">
+    <com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/productImage"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:scaleType="centerInside"
+    android:src="@drawable/iphone_17_pro_max_cosmic_orange"
+    android:contentDescription="Product image"
+    app:shapeAppearanceOverlay="@style/Base.CardView" /> <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp"
-    android:foreground="?attr/selectableItemBackground">
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+    android:id="@+id/productName"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="iPhone 17 Pro Max"
+    android:textStyle="bold"
+    android:textSize="18sp"
+    android:textColor="#1A1A1A" />
+
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$1,299.00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/design_default_color_primary"
+        android:layout_marginTop="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:contentDescription="Product image"
-            android:scaleType="centerInside"
-            android:src="@drawable/iphone_17_pro_max_cosmic_orange" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddToCart"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:layout_weight="1"
+            android:text="Add to Cart"
+            android:textColor="@color/design_default_color_primary"
+            app:cornerRadius="8dp" />
 
-            <TextView
-                android:id="@+id/productName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sample Product"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="#222222" />
-
-            <TextView
-                android:id="@+id/productPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$29.99"
-                android:textSize="14sp"
-                android:textColor="#666666"
-                android:layout_marginTop="4dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                >
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddToCart"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add to Cart"
-                    app:cornerRadius="50dp"
-                    app:icon="@drawable/shopping_cart"
-                    app:iconGravity="textStart"
-                    app:iconPadding="8dp" />
-
-                <ImageView
-                    android:id="@+id/btnLike"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="8dp"
-                    android:src="@drawable/shopping_bag"
-                    android:contentDescription="Like"
-                    android:background="?attr/selectableItemBackgroundBorderless" />
-            </LinearLayout>
-
-        </LinearLayout>
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLike"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            app:icon="@drawable/shopping_cart"
+            app:iconTint="#FF5722"
+            app:iconSize="24dp"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#F5F5F5"
+            android:contentDescription="Add to Favorites"/>
     </LinearLayout>
-
-</com.google.android.material.card.MaterialCardView>
-
+</LinearLayout>
+</LinearLayout>
