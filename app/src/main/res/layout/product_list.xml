@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:background="@drawable/rounded_card_background"
     android:elevation="4dp">
+
     <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/productImage"
     android:layout_width="match_parent"
@@ -46,16 +47,18 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_marginTop="16dp">
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddToCart"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
+            android:id="@+id/btnaddcart"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
             android:text="Add to Cart"
-            android:textColor="@color/design_default_color_primary"
-            app:cornerRadius="8dp" />
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="24dp"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLike"
@@ -63,7 +66,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="12dp"
-            app:icon="@drawable/shopping_cart"
+            app:icon="@drawable/heart"
             app:iconTint="#FF5722"
             app:iconSize="24dp"
             app:cornerRadius="24dp"
