@@ -9,6 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +32,11 @@ public class HomeFragment extends Fragment {
     private ImageView eyeToggleButton;
     private TextView walletBalanceText;
 
+    RecyclerView recyclerView;
+    ProductAdapter productAdapter;
+    List<Product> productList;
+    private int contentView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,16 +46,28 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view,
-                              @Nullable Bundle savedInstanceState) {
+
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         addWalletButton = view.findViewById(R.id.addWalltes);
         eyeToggleButton = view.findViewById(R.id.closeeye);
         walletBalanceText = view.findViewById(R.id.walletBalance);
 
-        loadPreferences();
+        recyclerView = view.findViewById(R.id.recyclerViewProducts);
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
 
+        productList = new ArrayList<>();
+        productList.add(new Product("iPhone 17 Pro Max", "$1,299.00", R.drawable.iphone_17_pro_max_cosmic_orange));
+        productList.add(new Product("Air Pod Max", "$450", R.drawable.airpods_max_2024_blue_pdp_image_position_1__en_us_471a10d7_31d3_4c39_8258_5dbb3b0237e3));
+        productList.add(new Product("Air Pod 3", "$200", R.drawable.apple_airpods_pro_3_hero_250909_inline_jpg_large));
+        productList.add(new Product("WH-1000XM5 SONY", "$399.99", R.drawable._03364_original_local_504x441_v3_converted));
+
+        productAdapter = new ProductAdapter(requireContext(), productList);
+        recyclerView.setAdapter(productAdapter);
+
+        loadPreferences();
         updateEyeState();
 
         if (addWalletButton != null) {
@@ -55,6 +78,7 @@ public class HomeFragment extends Fragment {
             eyeToggleButton.setOnClickListener(v -> toggleEyeState());
         }
     }
+
     private void toggleEyeState() {
         isEyeOpen = !isEyeOpen;
         updateEyeState();
@@ -89,5 +113,13 @@ public class HomeFragment extends Fragment {
         if (context == null) return;
         SharedPreferences prefs = context.getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
         isEyeOpen = prefs.getBoolean(PREF_KEY_EYE_STATUS, false);
+    }
+
+    public void setContentView(int contentView) {
+        this.contentView = contentView;
+    }
+
+    public int getContentView() {
+        return contentView;
     }
 }
