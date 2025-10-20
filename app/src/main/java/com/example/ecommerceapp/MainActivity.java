@@ -7,6 +7,8 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ecommerceapp.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
