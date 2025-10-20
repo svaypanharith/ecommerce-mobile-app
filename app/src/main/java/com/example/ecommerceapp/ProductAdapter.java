@@ -1,15 +1,16 @@
 package com.example.ecommerceapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ecommerceapp.R;
 import com.google.android.material.imageview.ShapeableImageView;
 import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>   {
@@ -34,6 +35,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.productName.setText(product.getName());
         holder.productPrice.setText(product.getPrice());
         holder.productImage.setImageResource(product.getImageResId());
+        holder.card.setOnClickListener(v -> {
+                    Intent intent = new Intent(context, ProductDetail.class);
+                    intent.putExtra("productName", product.getName());
+                    intent.putExtra("productPrice", product.getPrice());
+                    intent.putExtra("productImage", product.getImageResId());
+                    context.startActivity(intent);
+                });
+        holder.btnAddCart.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ProductDetail.class);
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productPrice", product.getPrice());
+            intent.putExtra("productImage", product.getImageResId());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -43,6 +58,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView productName, productPrice;
+        Button btnAddCart;
+
+        View card;
         ShapeableImageView productImage;
 
         public ViewHolder(@NonNull View itemView) {
@@ -50,6 +68,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             productName = itemView.findViewById(R.id.productName);
             productPrice = itemView.findViewById(R.id.productPrice);
             productImage = itemView.findViewById(R.id.productImage);
+            btnAddCart = itemView.findViewById(R.id.btnAddtoCart);
+            card = itemView.findViewById(R.id.productcard);
         }
     }
 

@@ -12,6 +12,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity);
 
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         if (savedInstanceState == null) {

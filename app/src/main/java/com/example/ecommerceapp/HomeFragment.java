@@ -2,11 +2,13 @@ package com.example.ecommerceapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,10 +52,10 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         addWalletButton = view.findViewById(R.id.addWalltes);
         eyeToggleButton = view.findViewById(R.id.closeeye);
         walletBalanceText = view.findViewById(R.id.walletBalance);
+        Button btnAddTocart = view.findViewById(R.id.btnAddtoCart);
 
         recyclerView = view.findViewById(R.id.recyclerViewProducts);
         recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
@@ -69,6 +71,7 @@ public class HomeFragment extends Fragment {
 
         loadPreferences();
         updateEyeState();
+
 
         if (addWalletButton != null) {
             addWalletButton.setOnClickListener(v -> showWalletTransferBottomSheet());
