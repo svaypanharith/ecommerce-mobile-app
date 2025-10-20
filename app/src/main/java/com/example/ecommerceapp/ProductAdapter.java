@@ -1,4 +1,4 @@
-package com.example.mobileapp;
+package com.example.ecommerceapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mobileapp.Product;
 import com.google.android.material.imageview.ShapeableImageView;
 import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>   {

@@ -1,8 +1,7 @@
-package com.example.mobileapp;
+package com.example.ecommerceapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;

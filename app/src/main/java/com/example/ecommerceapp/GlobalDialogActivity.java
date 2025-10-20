@@ -1,6 +1,5 @@
-package com.example.mobileapp;
+package com.example.ecommerceapp;
 
-import android.animation.Animator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

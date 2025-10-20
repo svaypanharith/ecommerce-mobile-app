@@ -1,8 +1,6 @@
-package com.example.mobileapp;
-import static android.content.ContentValues.TAG;
+package com.example.ecommerceapp;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 

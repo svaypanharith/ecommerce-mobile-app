@@ -1,9 +1,8 @@
-package com.example.mobileapp;
+package com.example.ecommerceapp;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BackButtonHelper {
 
