@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
         productList = new ArrayList<>();
         productList.add(new Product("iPhone 17 Pro Max", "$1,299.00", R.drawable.iphone_17_pro_max_cosmic_orange));
         productList.add(new Product("Air Pod Max", "$450", R.drawable.airpods_max_2024_blue_pdp_image_position_1__en_us_471a10d7_31d3_4c39_8258_5dbb3b0237e3));
-        productList.add(new Product("Air Pod 3", "$200", R.drawable.apple_airpods_pro_3_hero_250909_inline_jpg_large));
+        productList.add(new Product("Macbook Air M3 13  ", "$1200", R.drawable.mac));
         productList.add(new Product("WH-1000XM5 SONY", "$399.99", R.drawable._03364_original_local_504x441_v3_converted));
 
         productAdapter = new ProductAdapter(requireContext(), productList);
