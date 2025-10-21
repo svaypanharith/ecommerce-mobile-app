@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!-- Header -->
     <include
         android:id="@+id/headerInclude"
         layout="@layout/header_activity"
@@ -17,11 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Image Carousel -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/productImageCarousel"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/headerInclude"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +28,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/dotsIndicator"
         android:layout_width="80dp"
-        android:layout_height="18dp"
+        android:layout_height="10dp"
         android:backgroundTint="@color/white"
         app:tabBackground="@drawable/tab_indicator"
         app:tabIndicatorHeight="0dp"
@@ -41,49 +39,141 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <LinearLayout
-        android:id="@+id/productDetails"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/productScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_marginTop="16dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/dotsIndicator"
+        app:layout_constraintBottom_toTopOf="@id/btnAddToCart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnAddToCart">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/productTitle"
+        <LinearLayout
+            android:id="@+id/productDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iphone 17 Promax"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#000" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/productPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="$199.00"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/productDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is a modern and stylish product made with premium materials. Perfect for your lifestyle."
-            android:textSize="15sp"
-            android:textColor="#555"
-            android:layout_marginTop="12dp" />
+            <TextView
+                android:id="@+id/productTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="iPhone 17 ProMax"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$1,299.00"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"/>
 
-    <!-- Add to Cart Button -->
+            <TextView
+                android:id="@+id/productDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The iPhone 17 Pro Max features a heat-forged aluminum unibody, the powerful A19 Pro chip with advanced cooling, and a significantly improved camera system with a new 18MP Center Stage front camera and the longest zoom ever on an iPhone. Key upgrades include breakthrough battery life, up to 2TB storage, a 6.9-inch Super Retina XDR display, and enhanced performance with Apple Intelligence integration."
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:layout_marginTop="8dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginVertical="12dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:id="@+id/colorContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Storage"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginTop="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/storageContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="start" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantity"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginTop="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDecreaseQty"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="-"
+                    android:backgroundTint="@color/black"
+                    android:padding="0dp"
+                    app:cornerRadius="6dp"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="40dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIncreaseQty"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:backgroundTint="@color/black"
+                    android:padding="0dp"
+                    app:cornerRadius="6dp"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAddToCart"
         android:layout_width="0dp"
