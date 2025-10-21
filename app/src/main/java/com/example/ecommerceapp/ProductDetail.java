@@ -84,10 +84,10 @@ public class ProductDetail extends AppCompatActivity {
             View colorView = new View(this);
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    (int) getResources().getDimension(R.dimen.color_circle_size), // 24dp
+                    (int) getResources().getDimension(R.dimen.color_circle_size),
                     (int) getResources().getDimension(R.dimen.color_circle_size)
             );
-            params.setMargins(0, 0, 16, 0); // marginEnd = 16px
+            params.setMargins(0, 0, 24 , 0);
             colorView.setLayoutParams(params);
 
             colorView.setBackgroundResource(R.drawable.color_circle);
